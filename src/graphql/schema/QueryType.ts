@@ -4,7 +4,7 @@ import { GraphQLNonNull, GraphQLObjectType } from "graphql";
 import { connectionArgs, connectionFromArray } from "graphql-relay";
 import { PostConnection } from "../post/postType";
 
-import * as PostLoader from "../../graphql/post/mutations/PostLoader";
+import * as PostLoader from "../post/PostLoader";
 
 const QueryType = new GraphQLObjectType({
   name: 'Query',
