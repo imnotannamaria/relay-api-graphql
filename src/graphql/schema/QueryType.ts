@@ -1,11 +1,10 @@
+import { GraphQLNonNull, GraphQLObjectType } from 'graphql';
+import { connectionArgs, connectionFromArray } from 'graphql-relay';
+
+import { PostConnection } from '../post/postType';
+import * as PostLoader from '../post/PostLoader';
+
 // Concentra todas as query da aplicação (entry point)
-
-import { GraphQLNonNull, GraphQLObjectType } from "graphql";
-import { connectionArgs, connectionFromArray } from "graphql-relay";
-import { PostConnection } from "../post/postType";
-
-import * as PostLoader from "../post/PostLoader";
-
 const QueryType = new GraphQLObjectType({
   name: 'Query',
   description: 'The root of all queries',

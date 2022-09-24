@@ -1,5 +1,6 @@
-import { GraphQLObjectType } from "graphql";
-import PostMutations from "../post/mutations";
+import { GraphQLObjectType } from 'graphql';
+
+import PostMutations from '../post/mutations';
 
 const MutationType = new GraphQLObjectType({
   name: 'Mutation',

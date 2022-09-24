@@ -1,7 +1,6 @@
+import { readDatabase } from '../../utils'
+
 // Basicamente o controller / Buscar dados no banco, buscar por id. 
-
-import { readDatabase } from "../../utils"
-
 export async function loadAll() {
   const posts = await readDatabase('posts');
 

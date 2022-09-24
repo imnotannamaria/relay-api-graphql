@@ -1,8 +1,7 @@
-import { GraphQLObjectType, GraphQLString } from "graphql";
-import { connectionDefinitions, globalIdField } from "graphql-relay";
+import { GraphQLObjectType, GraphQLString } from 'graphql';
+import { connectionDefinitions, globalIdField } from 'graphql-relay';
 
 // Basicamente um Model
-
 const PostType = new GraphQLObjectType({
   name: 'Post',
   description: 'Post Type',

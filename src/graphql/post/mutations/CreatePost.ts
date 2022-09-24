@@ -1,10 +1,12 @@
-import { GraphQLNonNull, GraphQLString } from "graphql";
-import { mutationWithClientMutationId, toGlobalId } from "graphql-relay";
+import { GraphQLNonNull, GraphQLString } from 'graphql';
+import { mutationWithClientMutationId, toGlobalId } from 'graphql-relay';
+
 import { resolve } from 'path';
-import { readDatabase } from "../../../utils";
 import { uuid } from 'uuidv4';
 import fs from 'fs';
-import { PostEdge } from "../postType";
+
+import { PostEdge } from '../postType';
+import { readDatabase } from '../../../utils';
 
 export default mutationWithClientMutationId({
   name: 'CreatePost',
