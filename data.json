@@ -1,3 +1,29 @@
 {
-  "posts": []
+  "posts": [
+    {
+      "id": "cf7a9489-d810-4a6e-85bf-eaa050acc190",
+      "title": "My first post",
+      "body": "This is a post 1"
+    },
+    {
+      "id": "b9af9a34-eac4-4d09-8356-b443292f194b",
+      "title": "My second post",
+      "body": "This is a post 2"
+    },
+    {
+      "id": "3a469e97-d99f-4486-a7be-509768fb9201",
+      "title": "Post 3",
+      "body": "This is a post 3"
+    },
+    {
+      "id": "04ba117e-777a-471e-a422-f8ea9a360cc2",
+      "title": "My 4 post",
+      "body": "This is a post 4"
+    },
+    {
+      "id": "9347b194-c22d-46df-93d3-176bc844f317",
+      "title": "My 5 post",
+      "body": "This is a post 5"
+    }
+  ]
 }
