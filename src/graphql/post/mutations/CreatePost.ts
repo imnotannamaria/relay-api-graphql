@@ -6,7 +6,14 @@ import { uuid } from 'uuidv4';
 import fs from 'fs';
 
 import { PostEdge } from '../postType';
-import { readDatabase } from '../../../utils';
+
+import admin from 'firebase-admin';
+import serviceAccount from '../../../utils/ServiceAccontKeys.json'
+import { PostProps, readDatabase } from '../../../utils/readDatabase';
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount)
+});
 
 export default mutationWithClientMutationId({
   name: 'CreatePost',
@@ -23,7 +30,7 @@ export default mutationWithClientMutationId({
 
     const data = await readDatabase();
     
-    const post : any = {
+    const post : PostProps = {
       id: uuid(),
       title,
       body
@@ -31,9 +38,9 @@ export default mutationWithClientMutationId({
 
     let posts = [];
     
-    if(data.posts) {
+    if(data) {
       posts = [
-        ...data.posts,
+        ...data,
         {
           ...post
         }
@@ -46,10 +53,15 @@ export default mutationWithClientMutationId({
       ]
     }
 
-    await fs.writeFileSync(`${source}/data.json`, JSON.stringify({
-      ...data,
-      posts
-    }));
+    admin.firestore()
+    .collection('posts')
+    .add({
+      post
+    })
+    .then(() => {
+      console.log('Produto adicionado com sucesso!');
+    })
+    .catch((error) => console.log(error));
 
     return {
       post,

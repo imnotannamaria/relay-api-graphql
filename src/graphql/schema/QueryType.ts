@@ -2,7 +2,7 @@ import { GraphQLNonNull, GraphQLObjectType } from 'graphql';
 import { connectionArgs, connectionFromArray } from 'graphql-relay';
 
 import { PostConnection } from '../post/postType';
-import * as PostLoader from '../post/PostLoader';
+import { readDatabase } from '../../utils/readDatabase';
 
 // Concentra todas as query da aplicação (entry point)
 const QueryType = new GraphQLObjectType({
@@ -13,9 +13,14 @@ const QueryType = new GraphQLObjectType({
       type: new GraphQLNonNull(PostConnection),
       args: connectionArgs,
       //first, after, before, last
-      resolve: async (_, args, context) => {
-        const data = await PostLoader.loadAll();
-        return connectionFromArray(data, args);
+      resolve: async (_, args) => {
+        const data = await readDatabase();
+        if(data == null){
+          return 'No Posts!'
+        }
+        else {
+          return connectionFromArray(data, args);
+        }
       }
     }
   })
