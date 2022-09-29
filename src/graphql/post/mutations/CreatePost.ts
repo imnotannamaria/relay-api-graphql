@@ -1,15 +1,13 @@
 import { GraphQLNonNull, GraphQLString } from 'graphql';
 import { mutationWithClientMutationId, toGlobalId } from 'graphql-relay';
 
-import { resolve } from 'path';
 import { uuid } from 'uuidv4';
-import fs from 'fs';
 
 import { PostEdge } from '../postType';
 
 import admin from 'firebase-admin';
 import serviceAccount from '../../../utils/ServiceAccontKeys.json'
-import { PostProps, readDatabase } from '../../../utils/readDatabase';
+import { PostProps } from '../../../utils/readDatabase';
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
@@ -25,38 +23,19 @@ export default mutationWithClientMutationId({
       type: new GraphQLNonNull(GraphQLString),
     },
   },
-  mutateAndGetPayload: async ({ title, body }) => {
-    const source = resolve(__dirname, '..', '..', '..', '..');
-
-    const data = await readDatabase();
-    
+  mutateAndGetPayload: async ({ title, body }) => {    
     const post : PostProps = {
       id: uuid(),
       title,
       body
     }
 
-    let posts = [];
-    
-    if(data) {
-      posts = [
-        ...data,
-        {
-          ...post
-        }
-      ]
-    } else {
-      posts = [
-        {
-          ...post
-        }
-      ]
-    }
-
     admin.firestore()
-    .collection('posts')
+    .collection('teste')
     .add({
-      post
+      id: uuid(),
+      title,
+      body
     })
     .then(() => {
       console.log('Produto adicionado com sucesso!');
