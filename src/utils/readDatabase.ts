@@ -7,7 +7,7 @@ export interface PostProps {
 }
 
 export async function readDatabase() {
-  const db = admin.firestore().collection('posts')
+  const db = admin.firestore().collection('teste')
   
   const dbData =  db.get()
   .then(response => {
