@@ -1,14 +1,14 @@
-## ✨ Tecnologias
-Tecnologias utilizadas no projeto:
+## ✨ Technologies
+Technologies used in the project:
 - Node
 - TypeScript
 - Firebase(Firestore)
 - Graphql
 - Relay
 
-## 💻 Funcionalidades do projeto e Mutations
+## 💻 Project Features and Mutations
 
-### Listar posts 
+### List posts 
 
     fragment Postlist_framgment on Query {
       posts {
@@ -31,7 +31,7 @@ Tecnologias utilizadas no projeto:
     query {
       ...Postlist_framgment
     }
- ### Criar posts 
+ ### Create posts 
 
     mutation {
       CreatePost (
@@ -50,7 +50,7 @@ Tecnologias utilizadas no projeto:
       }
     }
 
- ### Editar posts 
+ ### Edit posts 
 
     mutation {
       EditPost (
@@ -70,7 +70,7 @@ Tecnologias utilizadas no projeto:
       }
     }
 
-  ### Deletar posts 
+  ### Delete posts 
 
     mutation {
       DeletePost (
@@ -85,10 +85,10 @@ Tecnologias utilizadas no projeto:
         }
       }
     }
-## Sobre o projeto ##
-Base do projeto criada com a ajuda de uma video aula do canal dogcode. 
+## About the project ##
+Project base created with the help of a video lesson from the dogcode channel.
 
 
 ## 🚀 Deploy
-- Instalar dependências com `yarn` ou `npm i`
-- Iniciar `yarn run dev:server` ou `npm run dev:server`
+- Install dependencies with `yarn` or `npm i`
+- Init with `yarn run dev:server` or `npm run dev:server`
